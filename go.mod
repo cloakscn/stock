@@ -5,6 +5,7 @@ go 1.21
 require (
 	fyne.io/fyne/v2 v2.4.4
 	github.com/go-resty/resty/v2 v2.11.0
+	gopkg.in/ini.v1 v1.62.0
 	gorm.io/driver/sqlite v1.5.5
 	gorm.io/gorm v1.25.7
 )
