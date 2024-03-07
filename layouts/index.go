@@ -187,6 +187,7 @@ func getTabIndex(w fyne.Window) (*container.TabItem, error) {
 				} else {
 					codes = append(codes, code.Text)
 				}
+				appendTableBindingCell(cells, 1)
 			}, w)
 		formDialog.Resize(fyne.NewSize(400, -1))
 		formDialog.Show()
@@ -247,6 +248,17 @@ func createTableBindingCell(raw int, headers ...string) [][]interface{} {
 		for _, _ = range headers {
 			cells[i+1] = append(cells[i+1], binding.NewString())
 		}
+	}
+	return cells
+}
+
+func appendTableBindingCell(cells [][]interface{}, count int) [][]interface{} {
+	for i := 0; i < count; i++ {
+		var cols []interface{}
+		for _, _ = range cells[0] {
+			cols = append(cols, binding.NewString())
+		}
+		cells = append(cells, cols)
 	}
 	return cells
 }
